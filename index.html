@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BSY Healthy Millet Kitchen | Healthy Food, Happy Life in Hyderabad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="BSY Healthy Millet Kitchen offers homemade healthy millet-based food delivery in Hyderabad. Jowar Roti, Ragi Roti, Ragi Java, and millet combo meals delivered fresh.">
+  <meta name="keywords" content="healthy food Hyderabad, millet food, ragi roti, jowar roti, homemade food Hyderabad, millet kitchen, healthy tiffins Hyderabad">
+  <meta name="robots" content="index, follow">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --primary: #16a34a;
+      --primary-light: #22c55e;
+      --primary-dark: #15803d;
+      --accent: #f59e0b;
+      --bg: #f5f9f6;
+      --text-dark: #0f172a;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #ecfdf3 0, #f5f9f6 40%, #e0f2fe 100%);
+      color: var(--text-dark);
+    }
+
+    /* Nav */
+    .nav-blur {
+      backdrop-filter: blur(18px);
+      background: rgba(248, 250, 252, 0.85);
+    }
+
+    /* Gradients & subtle animations */
+    .hero-gradient {
+      background: radial-gradient(circle at top left, #bbf7d0 0, #fefce8 45%, #e0f2fe 95%);
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+      border-radius: 1.25rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      border: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(22, 163, 74, 0.22);
+      border-color: rgba(34, 197, 94, 0.55);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #f9fafb;
+      border-radius: 999px;
+      padding: 0.8rem 1.6rem;
+      font-weight: 600;
+      box-shadow: 0 14px 30px rgba(22, 163, 74, 0.35);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 20px 35px rgba(22, 163, 74, 0.45);
+    }
+
+    .btn-outline {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 0.75rem 1.4rem;
+      font-weight: 500;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+
+    .btn-outline:hover {
+      background: rgba(22, 163, 74, 0.06);
+      border-color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    /* Tag and chips */
+    .pill {
+      border-radius: 999px;
+      padding: 0.15rem 0.7rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      background: rgba(220, 252, 231, 0.7);
+      color: #166534;
+    }
+
+    /* Section headings */
+    .section-title {
+      font-size: clamp(1.75rem, 2.6vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .section-subtitle {
+      max-width: 28rem;
+    }
+
+    /* Hero image placeholder (simple modern illustration vibe using gradients) */
+    .hero-plate {
+      position: relative;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0%, #bbf7d0 0, #22c55e 32%, #16a34a 65%, #166534 100%);
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 4 / 3;
+      box-shadow: 0 26px 60px rgba(22, 163, 74, 0.5);
+      overflow: hidden;
+    }
+
+    .hero-plate::before {
+      content: "";
+      position: absolute;
+      inset: 12% 12%;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 0%, #fefce8 0, #fde68a 40%, #facc15 100%);
+      box-shadow: inset 0 0 18px rgba(15, 23, 42, 0.15);
+    }
+
+    .hero-plate::after {
+      content: "";
+      position: absolute;
+      inset: 28% 18%;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 0%, #ecfccb 0, #22c55e 25%, #15803d 60%, #14532d 95%);
+    }
+
+    .hero-grain {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #fefce8 0, #facc15 35%, #b45309 90%);
+      box-shadow:
+        0 8px 16px rgba(15, 23, 42, 0.25),
+        0 0 0 4px rgba(254, 249, 195, 0.7);
+    }
+
+    .hero-grain:nth-child(1) { top: 18%; left: 34%; transform: scale(1.1); }
+    .hero-grain:nth-child(2) { top: 40%; left: 24%; transform: scale(0.9); }
+    .hero-grain:nth-child(3) { top: 46%; left: 56%; transform: scale(1.2); }
+    .hero-grain:nth-child(4) { top: 66%; left: 34%; transform: scale(1.05); }
+    .hero-grain:nth-child(5) { top: 32%; left: 72%; transform: scale(0.9); }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .floating-delay {
+      animation: float 7s 0.5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* Price badge */
+    .price-badge {
+      background: rgba(15, 23, 42, 0.92);
+      color: #fefce8;
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.4);
+    }
+
+    /* Smooth anchor scrolling offset for fixed nav (handled via JS) */
+
+    /* Floating WhatsApp Button */
+    .floating-whatsapp {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 50;
+    }
+
+    .floating-whatsapp-btn {
+      background: #22c55e;
+      color: #f9fafb;
+      width: 3.25rem;
+      height: 3.25rem;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 35px rgba(22, 163, 74, 0.55);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .floating-whatsapp-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 22px 40px rgba(22, 163, 74, 0.7);
+    }
+
+    /* Simple icon */
+    .wa-icon {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+
+    /* Form styles */
+    .input {
+      border-radius: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 0.7rem 0.9rem;
+      font-size: 0.9rem;
+      width: 100%;
+      background: rgba(248, 250, 252, 0.85);
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.55), 0 12px 30px rgba(22, 163, 74, 0.25);
+      background: #ffffff;
+    }
+
+    .textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      .hero-plate {
+        max-width: 280px;
+      }
+    }
+
+    /* Hide map extra controls for cleaner embed on mobile */
+    .map-container iframe {
+      border-radius: 1rem;
+    }
+  </style>
+</head>
+<body class="text-slate-900">
+  <!-- Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-40 nav-blur border-b border-slate-200/60">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-3 sm:py-4">
+        <a href="#home" class="flex items-center gap-2 group">
+          <div class="relative">
+            <div class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-green-500 via-emerald-500 to-lime-400 flex items-center justify-center shadow-lg shadow-green-500/50">
+              <span class="text-sm font-bold text-emerald-950">BSY</span>
+            </div>
+          </div>
+          <div class="flex flex-col leading-tight">
+            <span class="font-extrabold text-slate-900 tracking-tight text-sm sm:text-base">BSY Healthy Millet Kitchen</span>
+            <span class="text-[10px] sm:text-[11px] text-emerald-700">Healthy Food, Happy Life 💚</span>
+          </div>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+          <a href="#home" class="text-slate-700 hover:text-emerald-600 transition-colors">Home</a>
+          <a href="#menu" class="text-slate-700 hover:text-emerald-600 transition-colors">Menu</a>
+          <a href="#about" class="text-slate-700 hover:text-emerald-600 transition-colors">About</a>
+          <a href="#order" class="text-slate-700 hover:text-emerald-600 transition-colors">Order</a>
+          <a href="#contact" class="text-slate-700 hover:text-emerald-600 transition-colors">Contact</a>
+          <a href="https://wa.me/917416540303" target="_blank" rel="noopener" class="btn-primary flex items-center gap-1">
+            <span>Order on WhatsApp</span>
+          </a>
+        </nav>
+        <!-- Mobile WhatsApp shortcut -->
+        <a href="https://wa.me/917416540303" target="_blank" rel="noopener" class="md:hidden btn-primary text-xs px-3 py-2">
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-20 sm:pt-24" id="home">
+    <!-- Hero -->
+    <section class="hero-gradient">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-20">
+        <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <!-- Text -->
+          <div class="space-y-6">
+            <div class="flex items-center gap-2">
+              <span class="pill">Homemade · Millet Based · Hyderabad</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
+              Healthy millet meals,
+              <span class="text-emerald-600">fresh from our kitchen</span>
+              to your home.
+            </h1>
+            <p class="text-slate-600 text-sm sm:text-base max-w-xl">
+              BSY Healthy Millet Kitchen delivers <strong>homemade, hygienic, and fresh millet-based food</strong> across Nacharam and nearby areas in Hyderabad. Enjoy soft
+              <strong>Jowar Roti</strong>, nutritious <strong>Ragi Roti</strong>, and wholesome <strong>Ragi Java</strong> every day.
+            </p>
+            <ul class="flex flex-wrap gap-2 text-xs sm:text-sm text-slate-700">
+              <li class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/80 border border-emerald-100 shadow-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                No maida · No preservatives
+              </li>
+              <li class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/80 border border-emerald-100 shadow-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                100% homemade & hygienic
+              </li>
+              <li class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/80 border border-emerald-100 shadow-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                Ideal for daily healthy meals
+              </li>
+            </ul>
+            <div class="flex flex-wrap items-center gap-3 sm:gap-4">
+              <a href="https://wa.me/917416540303?text=Hi%20BSY%20Healthy%20Millet%20Kitchen%2C%20I%20would%20like%20to%20place%20an%20order."
+                 target="_blank" rel="noopener"
+                 class="btn-primary inline-flex items-center gap-2">
+                <span>Order Now on WhatsApp</span>
+              </a>
+              <a href="#menu" class="btn-outline inline-flex items-center gap-2 text-slate-700">
+                View Today’s Menu
+              </a>
+            </div>
+            <div class="flex items-center gap-4 text-xs sm:text-sm text-slate-600">
+              <div class="flex -space-x-2">
+                <div class="w-7 h-7 rounded-full bg-emerald-500/90 border-2 border-emerald-100 flex items-center justify-center text-[10px] text-white">
+                  4.9
+                </div>
+                <div class="w-7 h-7 rounded-full bg-amber-400/90 border-2 border-amber-100 flex items-center justify-center text-[10px] text-slate-900">
+                  Home
+                </div>
+              </div>
+              <div>
+                <div class="font-semibold text-slate-800">Loved by local families in Nacharam</div>
+                <div class="text-[11px] text-slate-500">Consistent taste · On-time delivery · Healthy recipes</div>
+              </div>
+            </div>
+          </div>
+          <!-- Visual -->
+          <div class="flex justify-center md:justify-end">
+            <div class="relative">
+              <div class="hero-plate floating-delay">
+                <!-- Millet grains decorative -->
+                <div class="hero-grain"></div>
+                <div class="hero-grain"></div>
+                <div class="hero-grain"></div>
+                <div class="hero-grain"></div>
+                <div class="hero-grain"></div>
+              </div>
+              <div class="absolute -top-4 -left-2 sm:-left-6 bg-white/90 backdrop-blur-md rounded-2xl shadow-lg px-3 py-2 text-xs flex items-center gap-2">
+                <div class="w-7 h-7 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-xs">Jr</div>
+                <div>
+                  <div class="font-semibold text-slate-800">Soft Jowar Rotis</div>
+                  <div class="text-[10px] text-slate-500">Perfect with any curry</div>
+                </div>
+              </div>
+              <div class="absolute -bottom-4 -right-2 sm:-right-6 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl px-3 py-2 text-xs flex flex-col gap-1">
+                <span class="text-[11px] uppercase tracking-wide text-slate-500">Today’s bestsellers</span>
+                <div class="flex items-center justify-between gap-3">
+                  <div class="space-y-0.5">
+                    <div class="font-semibold text-slate-800">Ragi Roti</div>
+                    <div class="font-semibold text-emerald-600 text-xs">High fiber · Diabetic-friendly</div>
+                  </div>
+                  <div class="price-badge">
+                    <span class="text-xs">Starting at</span>
+                    <span class="font-semibold text-amber-300">₹</span>
+                    <span class="font-semibold">12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute top-1/2 -translate-y-1/2 -right-4 sm:-right-10 bg-emerald-600 text-emerald-50 rounded-full px-3 py-1.5 text-[11px] shadow-lg floating">
+                <span class="font-semibold">Free delivery</span>
+                <span class="mx-1">·</span>
+                <span>Nacharam & nearby*</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu" class="py-10 sm:py-14 lg:py-18">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8 sm:mb-10">
+          <div>
+            <h2 class="section-title">Our Millet Menu</h2>
+            <p class="section-subtitle text-slate-600 text-sm sm:text-base mt-2">
+              Simple, tasty, and wholesome. Perfect for daily meals, office tiffins, and family dinners in Hyderabad.
+            </p>
+          </div>
+          <a href="https://wa.me/917416540303?text=Hi%2C%20please%20share%20today%E2%80%99s%20menu%20and%20timings."
+             target="_blank" rel="noopener"
+             class="btn-outline text-xs sm:text-sm flex items-center gap-2 self-start">
+            Ask for today’s timings
+          </a>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-7">
+          <!-- Jowar Roti -->
+          <article class="card p-5 flex flex-col">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-semibold text-lg text-slate-900">Jowar Roti</h3>
+              <span class="rounded-full bg-emerald-50 text-emerald-700 text-[11px] px-2 py-0.5 border border-emerald-100">
+                Bestseller
+              </span>
+            </div>
+            <p class="text-xs text-slate-600 mb-3">
+              Soft, fluffy and light. Made with 100% jowar flour, hand-rolled and cooked on tawa with minimal oil.
+            </p>
+            <div class="flex flex-wrap items-baseline gap-2 mb-4">
+              <span class="text-sm text-slate-500">Starting from</span>
+              <span class="text-xl font-bold text-emerald-700">₹12</span>
+              <span class="text-xs text-slate-500">per roti (min. 6)</span>
+            </div>
+            <ul class="text-xs text-slate-600 space-y-1 mb-4">
+              <li>• Gluten-free, easy to digest</li>
+              <li>• Pairs well with dal, curries, and vegetables</li>
+              <li>• Ideal for weight management</li>
+            </ul>
+            <a href="https://wa.me/917416540303?text=Hi%2C%20I%20want%20to%20order%20Jowar%20Rotis.%20Please%20share%20options%20and%20pricing."
+               target="_blank" rel="noopener"
+               class="btn-primary mt-auto inline-flex justify-center text-sm">
+              Order Jowar Roti
+            </a>
+          </article>
+
+          <!-- Ragi Roti -->
+          <article class="card p-5 flex flex-col">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-semibold text-lg text-slate-900">Ragi Roti</h3>
+              <span class="rounded-full bg-amber-50 text-amber-700 text-[11px] px-2 py-0.5 border border-amber-100">
+                Diabetic-friendly
+              </span>
+            </div>
+            <p class="text-xs text-slate-600 mb-3">
+              Nutritious ragi roti made with finger millet flour. Lightly spiced, soft and filling—great for breakfast or dinner.
+            </p>
+            <div class="flex flex-wrap items-baseline gap-2 mb-4">
+              <span class="text-sm text-slate-500">Starting from</span>
+              <span class="text-xl font-bold text-emerald-700">₹15</span>
+              <span class="text-xs text-slate-500">per roti (min. 5)</span>
+            </div>
+            <ul class="text-xs text-slate-600 space-y-1 mb-4">
+              <li>• Rich in calcium and iron</li>
+              <li>• Helps manage blood sugar</li>
+              <li>• Keeps you full for longer</li>
+            </ul>
+            <a href="https://wa.me/917416540303?text=Hi%2C%20I%20want%20to%20order%20Ragi%20Rotis.%20Please%20share%20available%20combos."
+               target="_blank" rel="noopener"
+               class="btn-primary mt-auto inline-flex justify-center text-sm">
+              Order Ragi Roti
+            </a>
+          </article>
+
+          <!-- Ragi Java -->
+          <article class="card p-5 flex flex-col">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-semibold text-lg text-slate-900">Ragi Java</h3>
+              <span class="rounded-full bg-sky-50 text-sky-700 text-[11px] px-2 py-0.5 border border-sky-100">
+                Morning special
+              </span>
+            </div>
+            <p class="text-xs text-slate-600 mb-3">
+              Traditional ragi malt cooked to perfection. Can be prepared sweet or salted as per your preference.
+            </p>
+            <div class="flex flex-wrap items-baseline gap-2 mb-4">
+              <span class="text-sm text-slate-500">Starting from</span>
+              <span class="text-xl font-bold text-emerald-700">₹35</span>
+              <span class="text-xs text-slate-500">per glass</span>
+            </div>
+            <ul class="text-xs text-slate-600 space-y-1 mb-4">
+              <li>• Excellent for kids & elders</li>
+              <li>• High in fiber and calcium</li>
+              <li>• Perfect healthy breakfast option</li>
+            </ul>
+            <a href="https://wa.me/917416540303?text=Hi%2C%20I%20would%20like%20to%20order%20Ragi%20Java."
+               target="_blank" rel="noopener"
+               class="btn-primary mt-auto inline-flex justify-center text-sm">
+              Order Ragi Java
+            </a>
+          </article>
+        </div>
+
+        <!-- Combo Meals -->
+        <div class="mt-10">
+          <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-5">
+            <div>
+              <h3 class="font-semibold text-xl text-slate-900">Healthy Combo Meals</h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1">
+                Perfectly balanced millet-based combos for office lunch, dinner, or family meals.
+              </p>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-3 gap-6">
+            <article class="card p-4 flex flex-col">
+              <h4 class="font-semibold text-slate-900 mb-1">Everyday Millet Thali</h4>
+              <p class="text-xs text-slate-600 mb-2">
+                4 Jowar Rotis + 1 dry curry + 1 dal/sambar + salad.
+              </p>
+              <div class="flex items-baseline gap-2 mb-3">
+                <span class="text-base font-bold text-emerald-700">₹140</span>
+                <span class="text-[11px] text-slate-500">per plate</span>
+              </div>
+              <p class="text-[11px] text-slate-500 mb-3">Ideal for daily lunch or dinner.</p>
+              <a href="https://wa.me/917416540303?text=Hi%2C%20I%20want%20to%20order%20the%20Everyday%20Millet%20Thali."
+                 target="_blank" rel="noopener"
+                 class="btn-outline text-xs justify-center inline-flex mt-auto">
+                Order Thali on WhatsApp
+              </a>
+            </article>
+
+            <article class="card p-4 flex flex-col">
+              <h4 class="font-semibold text-slate-900 mb-1">Ragi Power Combo</h4>
+              <p class="text-xs text-slate-600 mb-2">
+                3 Ragi Rotis + curry + curd + salad.
+              </p>
+              <div class="flex items-baseline gap-2 mb-3">
+                <span class="text-base font-bold text-emerald-700">₹130</span>
+                <span class="text-[11px] text-slate-500">per plate</span>
+              </div>
+              <p class="text-[11px] text-slate-500 mb-3">Great for diabetic and health-conscious diets.</p>
+              <a href="https://wa.me/917416540303?text=Hi%2C%20I%20want%20to%20order%20the%20Ragi%20Power%20Combo."
+                 target="_blank" rel="noopener"
+                 class="btn-outline text-xs justify-center inline-flex mt-auto">
+                Order Ragi Combo
+              </a>
+            </article>
+
+            <article class="card p-4 flex flex-col">
+              <h4 class="font-semibold text-slate-900 mb-1">Breakfast Millet Combo</h4>
+              <p class="text-xs text-slate-600 mb-2">
+                Ragi Java + 2 mini Jowar Rotis with chutney.
+              </p>
+              <div class="flex items-baseline gap-2 mb-3">
+                <span class="text-base font-bold text-emerald-700">₹80</span>
+                <span class="text-[11px] text-slate-500">per person</span>
+              </div>
+              <p class="text-[11px] text-slate-500 mb-3">Perfect for a light yet filling start to your day.</p>
+              <a href="https://wa.me/917416540303?text=Hi%2C%20I%20want%20to%20order%20the%20Breakfast%20Millet%20Combo."
+                 target="_blank" rel="noopener"
+                 class="btn-outline text-xs justify-center inline-flex mt-auto">
+                Order Breakfast Combo
+              </a>
+            </article>
+          </div>
+
+          <div class="mt-4 text-[11px] text-slate-500">
+            *Prices are indicative and may vary slightly based on quantity and special requests. We will confirm final pricing on WhatsApp.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="py-10 sm:py-14 bg-white/70">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-10 lg:gap-14 items-start">
+          <div>
+            <h2 class="section-title">About BSY Healthy Millet Kitchen</h2>
+            <p class="text-slate-600 text-sm sm:text-base mt-3">
+              BSY Healthy Millet Kitchen is a <strong>home-based healthy food service</strong> located in
+              <strong>Nacharam, Hyderabad</strong>. We believe that everyday food should be:
+            </p>
+            <ul class="mt-3 space-y-2 text-sm text-slate-700">
+              <li>• Freshly prepared at home</li>
+              <li>• Made with clean, quality ingredients</li>
+              <li>• Balanced, nutritious, and easy to digest</li>
+            </ul>
+            <p class="text-slate-600 text-sm sm:text-base mt-4">
+              All our dishes are cooked in a <strong>hygienic home kitchen</strong> with the same care and love we cook for our own family. We focus on
+              <strong>millets</strong> like jowar and ragi, which are traditional grains known for their health benefits.
+            </p>
+
+            <h3 class="font-semibold text-lg text-slate-900 mt-6">Why millets?</h3>
+            <p class="text-slate-600 text-sm mt-2">
+              Millets are ancient grains that are:
+            </p>
+            <div class="grid sm:grid-cols-2 gap-3 mt-3 text-sm">
+              <div class="rounded-xl border border-emerald-100 bg-emerald-50/60 px-3 py-2.5">
+                <div class="font-semibold text-emerald-800 text-sm">High in fiber</div>
+                <p class="text-[12px] text-emerald-900 mt-1">
+                  Keeps you full longer, supports digestion, and helps maintain healthy weight.
+                </p>
+              </div>
+              <div class="rounded-xl border border-amber-100 bg-amber-50/70 px-3 py-2.5">
+                <div class="font-semibold text-amber-800 text-sm">Diabetic-friendly</div>
+                <p class="text-[12px] text-amber-900 mt-1">
+                  Jowar and ragi have low glycemic index, supporting better blood sugar control.
+                </p>
+              </div>
+              <div class="rounded-xl border border-sky-100 bg-sky-50/70 px-3 py-2.5">
+                <div class="font-semibold text-sky-800 text-sm">Rich in minerals</div>
+                <p class="text-[12px] text-sky-900 mt-1">
+                  Excellent source of calcium, iron, and essential nutrients for all age groups.
+                </p>
+              </div>
+              <div class="rounded-xl border border-lime-100 bg-lime-50/70 px-3 py-2.5">
+                <div class="font-semibold text-lime-800 text-sm">Gluten-free</div>
+                <p class="text-[12px] text-lime-900 mt-1">
+                  Ideal for people looking for gluten-free alternatives to wheat and maida.
+                </p>
+              </div>
+            </div>
+
+            <p class="text-slate-600 text-sm mt-4">
+              Whether you’re a working professional, a student, a senior citizen, or a health-conscious family, our millet-based meals are designed to
+              <strong>fit your lifestyle</strong> without compromising on taste.
+            </p>
+          </div>
+          <div class="space-y-4">
+            <div class="card p-5">
+              <h3 class="font-semibold text-slate-900 mb-2 text-base">Our Promise</h3>
+              <ul class="space-y-2 text-sm text-slate-700">
+                <li>• Homemade taste in every bite</li>
+                <li>• Freshly prepared after receiving orders (no stale food)</li>
+                <li>• Clean, hygienic, and safe cooking practices</li>
+                <li>• Timely delivery in and around Nacharam</li>
+              </ul>
+            </div>
+            <div class="card p-5">
+              <h3 class="font-semibold text-slate-900 mb-2 text-base">Service Areas</h3>
+              <p class="text-sm text-slate-700 mb-2">
+                We currently deliver to:
+              </p>
+              <p class="text-xs text-slate-600">
+                Nacharam, Mallapur, Habsiguda, Tarnaka, Uppal, and nearby surrounding areas in Hyderabad. For locations slightly outside this radius,
+                we will confirm availability and delivery charges on WhatsApp.
+              </p>
+              <a href="https://wa.me/917416540303?text=Hi%2C%20I%20want%20to%20check%20if%20you%20deliver%20to%20my%20location."
+                 target="_blank" rel="noopener"
+                 class="btn-outline inline-flex items-center gap-2 text-xs mt-3">
+                Check if we deliver to your area
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order Form -->
+    <section id="order" class="py-10 sm:py-14">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-[1.4fr,1fr] gap-8 lg:gap-10 items-start">
+          <div>
+            <h2 class="section-title">Place Your Order</h2>
+            <p class="section-subtitle text-slate-600 text-sm sm:text-base mt-2">
+              Share your details and order preferences. We will confirm on WhatsApp and share approximate delivery time.
+            </p>
+            <form id="orderForm" class="mt-6 space-y-4 card p-5">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="name" class="block text-xs font-medium text-slate-600 mb-1">Name</label>
+                  <input id="name" name="name" type="text" class="input" placeholder="Your full name" required>
+                </div>
+                <div>
+                  <label for="phone" class="block text-xs font-medium text-slate-600 mb-1">Phone Number</label>
+                  <input id="phone" name="phone" type="tel" class="input" placeholder="Your mobile / WhatsApp" required>
+                </div>
+              </div>
+              <div>
+                <label for="address" class="block text-xs font-medium text-slate-600 mb-1">Delivery Address</label>
+                <textarea id="address" name="address" class="input textarea" placeholder="Flat / House no, Street, Landmark, Area, Hyderabad" required></textarea>
+              </div>
+              <div>
+                <label for="orderDetails" class="block text-xs font-medium text-slate-600 mb-1">Order Details</label>
+                <textarea id="orderDetails" name="orderDetails" class="input textarea" placeholder="Example: 8 Jowar Rotis + 4 Ragi Rotis for dinner at 8:00 PM today" required></textarea>
+              </div>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="time" class="block text-xs font-medium text-slate-600 mb-1">Preferred Delivery Time</label>
+                  <input id="time" name="time" type="text" class="input" placeholder="e.g. Today 8:00 PM">
+                </div>
+                <div>
+                  <label for="notes" class="block text-xs font-medium text-slate-600 mb-1">Special Instructions (optional)</label>
+                  <input id="notes" name="notes" type="text" class="input" placeholder="Less spicy, no onions, etc.">
+                </div>
+              </div>
+              <button type="submit" class="btn-primary w-full justify-center inline-flex items-center gap-2 text-sm">
+                Submit Order on WhatsApp
+              </button>
+              <p class="text-[11px] text-slate-500">
+                By submitting, your order details will open in WhatsApp chat with us at
+                <span class="font-semibold text-slate-700">+91 7416540303</span>. Please review and send to confirm.
+              </p>
+            </form>
+          </div>
+          <div class="space-y-4">
+            <div class="card p-5">
+              <h3 class="font-semibold text-slate-900 mb-2 text-base">Ordering Tips</h3>
+              <ul class="text-sm text-slate-700 space-y-1.5">
+                <li>• Place lunch orders preferably before 10:00 AM.</li>
+                <li>• Place dinner orders preferably before 5:00 PM.</li>
+                <li>• For bulk / party orders, contact 1 day in advance.</li>
+                <li>• Cash / UPI payment options available.</li>
+              </ul>
+            </div>
+            <div class="card p-5">
+              <h3 class="font-semibold text-slate-900 mb-2 text-base">Quick WhatsApp Order</h3>
+              <p class="text-sm text-slate-700 mb-2">
+                Prefer direct chat? Click below to start WhatsApp chat and share your order.
+              </p>
+              <a href="https://wa.me/917416540303?text=Hi%20BSY%20Healthy%20Millet%20Kitchen%2C%20I%20want%20to%20place%20an%20order."
+                 target="_blank" rel="noopener"
+                 class="btn-primary w-full inline-flex justify-center text-sm">
+                Chat & Order on WhatsApp
+              </a>
+              <p class="text-[11px] text-slate-500 mt-2">
+                We usually respond within a few minutes during working hours.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-10 sm:py-14 bg-white/80 border-t border-slate-100">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-[1.2fr,1.3fr] gap-8 lg:gap-10 items-start">
+          <div class="space-y-5">
+            <h2 class="section-title">Contact & Location</h2>
+            <p class="section-subtitle text-slate-600 text-sm sm:text-base mt-2">
+              Based in Nacharam, Hyderabad. Contact us for daily meals, bulk orders, and special requests.
+            </p>
+            <div class="card p-5 space-y-4">
+              <div>
+                <h3 class="font-semibold text-sm text-slate-900 mb-1.5">Phone / WhatsApp</h3>
+                <p class="text-sm text-slate-700">
+                  <a href="tel:+917416540303" class="text-emerald-700 font-semibold">
+                    +91 74165 40303
+                  </a>
+                </p>
+                <a href="https://wa.me/917416540303" target="_blank" rel="noopener"
+                   class="btn-primary inline-flex items-center gap-2 text-xs mt-2">
+                  Open WhatsApp Chat
+                </a>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sm text-slate-900 mb-1.5">Address</h3>
+                <p class="text-sm text-slate-700 leading-relaxed">
+                  H.No.4-1-216/269/4040,<br>
+                  Street No.8, Parkview Residency,<br>
+                  Karthikeya Nagar, Nacharam,<br>
+                  Hyderabad - 500076, Telangana.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sm text-slate-900 mb-1.5">Timings</h3>
+                <p class="text-sm text-slate-700">
+                  Daily: 7:00 AM – 10:00 PM<br>
+                  (Order timings may vary slightly; please confirm on WhatsApp.)
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <h3 class="font-semibold text-sm text-slate-900">Find us on Google Maps</h3>
+            <div class="map-container card p-1">
+              <!-- Google Maps Embed (Nacharam area approximate location) -->
+              <iframe
+                title="BSY Healthy Millet Kitchen Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.117779919927!2d78.552!3d17.501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9e9c99d6b52f%3A0x90a2f29e0c5aeb1e!2sNacharam%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1700000000000"
+                width="100%"
+                height="280"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <p class="text-[11px] text-slate-500">
+              Note: Exact apartment location will be shared on WhatsApp after order confirmation for easy delivery coordination.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 bg-slate-50/70">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p class="text-[11px] sm:text-xs text-slate-500 text-center sm:text-left">
+        © <span id="year"></span> BSY Healthy Millet Kitchen, Nacharam, Hyderabad. All rights reserved.
+      </p>
+      <p class="text-[11px] sm:text-xs text-slate-400 text-center sm:text-right">
+        Homemade healthy millet food delivery · Jowar Roti · Ragi Roti · Ragi Java · Healthy food Hyderabad
+      </p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <div class="floating-whatsapp">
+    <a href="https://wa.me/917416540303?text=Hi%20BSY%20Healthy%20Millet%20Kitchen%2C%20I%20would%20like%20to%20place%20an%20order."
+       target="_blank" rel="noopener"
+       class="floating-whatsapp-btn"
+       aria-label="Chat on WhatsApp">
+      <!-- Simple WhatsApp-like icon -->
+      <svg class="wa-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M16 3C9.372 3 4 8.372 4 15c0 2.392.696 4.614 1.896 6.492L4 29l7.726-1.854C13.5 27.707 14.727 28 16 28c6.628 0 12-5.372 12-12S22.628 3 16 3Z" fill="#22C55E"/>
+        <path d="M12.322 10.916c-.25-.555-.514-.566-.754-.577l-.643-.01c-.223 0-.585.084-.89.422-.306.339-1.17 1.143-1.17 2.785 0 1.642 1.198 3.228 1.365 3.454.167.226 2.338 3.741 5.758 5.09 2.845 1.125 3.424.9 4.043.843.619-.057 1.993-.812 2.274-1.595.28-.783.28-1.454.196-1.595-.084-.141-.306-.226-.64-.396-.334-.169-1.993-.983-2.301-1.095-.306-.113-.528-.169-.75.17-.223.338-.86 1.094-1.055 1.318-.195.226-.39.254-.724.085-.334-.17-1.407-.517-2.683-1.648-0.992-.885-1.661-1.977-1.856-2.315-.195-.338-.021-.521.147-.69.151-.15.334-.39.501-.585.167-.196.223-.339.334-.565.111-.226.056-.424-.028-.594-.084-.17-.744-1.848-1.04-2.522Z" fill="#F9FAFB"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scrolling with offset for fixed header
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href').slice(1);
+        if (!targetId) return;
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          const headerOffset = 72;
+          const elementPosition = targetEl.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Order form -> open WhatsApp with pre-filled text
+    document.getElementById('orderForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const orderDetails = document.getElementById('orderDetails').value.trim();
+      const time = document.getElementById('time').value.trim();
+      const notes = document.getElementById('notes').value.trim();
+
+      let message = "Hi BSY Healthy Millet Kitchen,%0A%0AI would like to place an order.%0A%0A";
+      message += "*Name:* " + encodeURIComponent(name) + "%0A";
+      message += "*Phone:* " + encodeURIComponent(phone) + "%0A";
+      message += "*Address:* " + encodeURIComponent(address) + "%0A%0A";
+      message += "*Order Details:* " + encodeURIComponent(orderDetails) + "%0A";
+      if (time) {
+        message += "*Preferred Delivery Time:* " + encodeURIComponent(time) + "%0A";
+      }
+      if (notes) {
+        message += "*Special Instructions:* " + encodeURIComponent(notes) + "%0A";
+      }
+      message += "%0AThank you!";
+
+      const url = "https://wa.me/917416540303?text=" + message;
+      window.open(url, "_blank");
+    });
+  </script>
+</body>
+</html>
